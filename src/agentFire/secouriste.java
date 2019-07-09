@@ -13,16 +13,18 @@ public class secouriste extends Agent {
     Position Myposition;
 
     protected void setup() {
+        doWait(500);
         addBehaviour(new CyclicBehaviour(this) {
             public void action() {
-                //nbr des case infecté = 0 
+                
+                //nbr des case infecté =0 oui /,non
                 if (Envirenement.isGameOver()) {
                     myAgent.doDelete();
                 }
                 
                 String Responce;
                 ACLMessage msg = receive(); //recoit msg de la part case infecté
-                Myposition = Envirenement.percept_getposition(); // avoir sa place a partir d'enverenment pars'il se pose alreatoir
+                Myposition = Envirenement.percept_getposition(); // ? 
 
                 if (msg != null) {
                     try {
@@ -47,7 +49,7 @@ public class secouriste extends Agent {
                             Envirenement.secouriste_deplace(Myposition);
                             doWait(250);
                         }
-                        
+                        //send done
                         ACLMessage reply = new ACLMessage(ACLMessage.INFORM);
                         reply.setContent("done");
                         reply.addReceiver(msg.getSender());

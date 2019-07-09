@@ -29,13 +29,13 @@ public class Envirenement {
             }
         }
 
-        //choix aleatoire Box on fire
+        //choix aleatoire de l'organisme ataint par le virus      
         Random randomno = new Random();
         int x = randomno.nextInt(10);
         int y = randomno.nextInt(10);
         fireNbr++;
         grille[x][y] = 1;
-        
+
         // positon aleatoire de l'agent 
         x = randomno.nextInt(10);
         y = randomno.nextInt(10);
@@ -62,11 +62,9 @@ public class Envirenement {
         int nombreorganeinfict = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-
-                if (grille[i][j] == 1) {
+                if (grille[i][j] == 1 ) {
                     nombreorganeinfict++;
                 }
-
             }
         }
 

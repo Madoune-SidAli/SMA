@@ -48,7 +48,7 @@ public class Gui extends Application implements Runnable {
         group.getChildren().add(seesawF);
         Launchjade();
         Initialise();
-        drawagent(Envirenement.percept_getposition()); //done une pos aliatoir l agent
+        drawagent(Envirenement.percept_getposition());
         group.getChildren().add(secouriste);
         final Scene scene = new Scene(group, 600, 600, Color.CORAL);
         stage.setTitle("Agent fire fighter  ");
@@ -68,7 +68,7 @@ public class Gui extends Application implements Runnable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                Label succes = new Label("Fire extincte");
+                Label succes = new Label("");
                 succes.setLayoutX(10);
                 succes.setLayoutY(200);
                 succes.setFont(new Font("Arial", 48));
@@ -114,7 +114,6 @@ public class Gui extends Application implements Runnable {
             Envirenement envirenement = new Envirenement();
             AgentController Secouriste = mc.createNewAgent("secouriste", secouriste.class.getName(), new Object[]{});
             Secouriste.start();
-
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
                     AgentController organe = mc.createNewAgent("organ" + i + j, Fire.class.getName(), new Object[]{});
@@ -125,7 +124,7 @@ public class Gui extends Application implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        
     }
 
     public void Initialise() {
